@@ -3,6 +3,8 @@ For the paper: "Automated Tool Detection with Deep Learning for Monitoring Kinem
 
 Jani Koskinen, Mastaneh Torkamani-Azar, Ahmed Hussein, Antti Huotarinen, Roman Bednarik
 
+Contact: jani.koskinen@uef.fi
+
 University of Eastern Finland, School of Computing
 
 Kuopio University Hospital, Department of Neurosurgery, Institute of Clinical Medicine
