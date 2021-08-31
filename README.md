@@ -10,7 +10,7 @@ University of Eastern Finland, School of Computing
 Kuopio University Hospital, Department of Neurosurgery, Institute of Clinical Medicine
 
 ### Data
-Bolded items included in this repository.
+Bolded items included in this repository, others may be available upon request.
 
 Data for model training in folder model_train_test_data
   * **test_results: F1-Precision-Recall-Confidence values for the three experiments**
