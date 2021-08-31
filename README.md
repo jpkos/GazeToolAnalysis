@@ -24,5 +24,5 @@ Data for case study in folder case_study_data
 ### Scripts
   * preprocessing.py: Data loading and most pre-processing steps
   * analysis.py: Tool and gaze metric calculations
-  * correlation_analysis.py: plots for correlations between metrics
+  * correlation_analysis.py: plots for correlations between metrics. Correlation calculations were done using R.
   * plots.py: other plots
