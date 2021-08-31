@@ -1,5 +1,6 @@
 # Gaze Tool Analysis
 For the paper: "Automated Tool Detection with Deep Learning forMonitoring Kinematics and Eye-Hand Coordinationin Microsurgery"
+
 Jani Koskinen, Mastaneh Torkamani-Azar, Ahmed Hussein, Antti Huotarinen, Roman Bednarik
 ### Data
 Data for model training in folder model_train_test_data
