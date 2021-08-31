@@ -12,7 +12,7 @@ from utils.preprocess import calc_metrics
 V_LIM = 50 #velocity/curvature threshold
 M_LIMIT = 0.2  #percentage of missing frames allowed in action
 #%%Load data
-case_n = 2
+case_n = 1
 df = pd.read_csv(f'case_study_data/processed_data/pilot-2-case-{case_n}-tool-gaze-locations.csv')
 #%%Check which actions had >20% missing
 m = df.groupby(['mag_chg', 'class', 'action','action_change'])['missing_after_interpolation'].apply(lambda x: x.sum()/len(x)).dropna()
@@ -21,7 +21,7 @@ nmg = mg[~mg[0]]
 mg = mg[mg[0]] #actions that had less than m_limit % of missing values
 
 #%%Calculate metrics frame-by-frame, for each continuous segment and tool
-grouped = df.groupby(['action', 'class', 'code'])
+grouped = df.groupby(['action', 'class', 'action_code'])
 groups = []
 removed = 0
 for name, group in grouped: #This is super slow, try something better
@@ -77,14 +77,16 @@ td_norm.columns  = [f'{col}_norm' for col in td_norm.columns]
 #Merge tool tip distance and other metrics
 s = pd.merge(s, td, right_index=True, left_index=True)
 s = pd.merge(s, td_norm, right_index=True, left_index=True)
-# Add % of missing frames
+#%% Add % of missing frames
 s = pd.merge(s, m, right_index=True, left_index=True)
-# merge time
+#%% merge time
 s = pd.merge(s, t, right_index=True, left_index=True)
-#
+#%%
 s = s.reset_index()
+s.loc[s['action'] == 'C', 'action'] = 'D'
 s = s.rename(columns={'frame':'duration_f'})
-s = s.to_csv('savefile')
+# s = s.drop(labels=['level_0', 'index'], axis=1)
+s.to_csv(f'case_study_data/output_data/pilot-2-case-{case_n}-tool-kinematics.csv', index=None)
 #%%Gaze-tool distance
 df['gaze_tool_d'] = np.sqrt((df['x_gaze'] - df['x_tool'])**2 + (df['y_gaze'] - df['y_tool'])**2)
 df.loc[df['x_gaze'].diff()==0, 'gaze_tool_d'] = np.nan
@@ -100,5 +102,6 @@ g = g[g['action_change'].isin(g_mOK['action_change'])]
 gnorm = g.groupby(['class', 'mag_chg'])[['gaze_tool_mean', 'gaze_tool_sd']].apply(lambda x: x/x['gaze_tool_mean'].max())
 g[['gaze_tool_mean_norm', 'gaze_tool_sd_norm']] = gnorm
 g['gaze_missing'] = g['action_change'].map(g_m_map)
-
+#%%
+g.to_csv(f'case_study_data/output_data/pilot-2-case-{case_n}-gaze-tool.csv')
 
