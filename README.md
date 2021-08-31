@@ -1,5 +1,5 @@
 # Gaze Tool Analysis
-For the paper: "Automated Tool Detection with Deep Learning forMonitoring Kinematics and Eye-Hand Coordinationin Microsurgery"
+For the paper: "Automated Tool Detection with Deep Learning for Monitoring Kinematics and Eye-Hand Coordination in Microsurgery"
 
 Jani Koskinen, Mastaneh Torkamani-Azar, Ahmed Hussein, Antti Huotarinen, Roman Bednarik
 
