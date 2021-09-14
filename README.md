@@ -9,6 +9,8 @@ University of Eastern Finland, School of Computing
 
 Kuopio University Hospital, Department of Neurosurgery, Institute of Clinical Medicine
 
+Microsurgery Center, Kuopio University Hospital
+
 ### Data
 Bolded items included in this repository, others may be available upon request.
 
